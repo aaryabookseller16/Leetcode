@@ -9,12 +9,11 @@ class TreeNode:
 
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
-        
-        # dfs
-        left = self.maxDepth(root.left)
-        right = self.maxDepth(root.right)
+       if not root:
+           return 0
+       
+       leftHeight = self.maxDepth(root.left)
+       rightHeight = self.maxDepth(root.right)
 
-        return 1 + max(left,right)
+       return 1 + max(leftHeight, rightHeight)
         
