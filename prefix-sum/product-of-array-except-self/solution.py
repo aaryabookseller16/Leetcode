@@ -1,0 +1,19 @@
+from typing import List
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        prefix = [1] * n
+        suffix = [1] * n
+
+        # compute prefix: multiplication of all elements before
+        for i in range(1, n):
+            prefix[i] = prefix[i-1] * nums[i-1]
+
+        # compute suffix: multiplication of all elments after
+        for i in range(n-2, -1, -1):
+            suffix[i] = suffix[i+1] * nums[i+1]
+
+        # multiply prefix and suffix
+        ans = [prefix[i] * suffix[i] for i in range(n)]
+        return ans
