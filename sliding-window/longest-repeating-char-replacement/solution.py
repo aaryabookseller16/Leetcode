@@ -22,3 +22,5 @@ class Solution:
             longest = max(longest, right - left + 1)
 
         return longest
+    
+    
